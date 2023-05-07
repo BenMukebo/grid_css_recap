@@ -1,1 +1,16 @@
 
+.grid-conainer {
+  background-color: #eee;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  /* grid-template-columns: 300px 300px 300px; */
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-conainer > div {
+  background-color: #ccc;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #777;
+}
