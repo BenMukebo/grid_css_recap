@@ -47,3 +47,44 @@
   justify-self: end;
   align-self: start;
 }
+/* -------------------------------- */
+/* I do have 4 items in the grid contain*/
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* the last one should be on the second row line */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+article
+article img {
+  border: 1px solid #777;
+  width: 100%; /* Make the image and the title to only take the full width of the grid item in order to force item sum to contain the container width*/ 
+}
+
+article.featured_one {
+  grid-column: span 3; /* Take all 3 columns in width  and two following will go auttomaticaly underneath to the next row and they all take one columns in the width*/
+  /* let's create a nested grid inside this grid item */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center; /* align the items vertically in the center */
+}
+
+/* responsive */
+@media screen and (max-width: 980px) {
+  article {
+    grid-template-columns: 3rem; /* make it one column in width */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: ccenter;
+  }
+}
+
+/* responsive */
+@media screen and (max-width: 760px) {
+  article {
+    display: block; /* make it one column in width */
+  }
+}
