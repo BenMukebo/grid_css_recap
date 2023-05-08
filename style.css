@@ -14,3 +14,27 @@
   padding: 20px;
   border: 1px solid #777;
 }
+
+.grid-conainer > div:nth-child(1) {
+  grid-column: 1 / span 2; /* start at position 1 and  span this 2 columns in width == span 2*/ 
+}
+
+.grid-conainer > div:nth-child(2) {
+  grid-column: span 3; /* When we don't add a start position it automaticaly start at the next available position*/ 
+}
+
+.grid-conainer > div:nth-child(3) {
+  grid-column: span 1; /* default value*/ 
+}
+
+.grid-conainer > div:nth-child(4) {
+  grid-column: 2 / 6; /* start at line 2 up to the 6th column grid line or the end grid line */ 
+}
+
+.grid-conainer > div:nth-child(5) {
+  grid-column: span 3; /* 3 columns in width and since there is not space it goes to the next line */ 
+}
+
+.grid-conainer > div:nth-child(6) {
+  grid-column: span 3;
+}
