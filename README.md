@@ -34,3 +34,10 @@ $ git reset HEAD~2
 $ git revert HEAD # Create a new commit that undoes all of the changes made in the most recent commit
 $ git revert <commit_hash> # Create a new commit that undoes all of the changes made in <commit_hash>, then apply it to the current branch.
 ```
+- Check commit history
+
+```bash
+$ git reflog # Display what happend inside the commit history
+$ git log --graph --decorate --oneline # Display what happend inside the commit history
+$ git log -S "git checkout -b" # Search this text inside all my commit to see where this text came from or modify are showing up
+```
