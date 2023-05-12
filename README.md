@@ -25,3 +25,12 @@ $ git commit -m "commit message" # commit staged files
 $ git commit -a -m "commit message" # add and commit all files but it never work for new files OR
 - git commit -am "commit message" 
 ```
+
+- Undo Add & Commit
+
+```bash
+$ git reset HEAD~ # undo last commit but keep changes OR 
+$ git reset HEAD~2
+$ git revert HEAD # Create a new commit that undoes all of the changes made in the most recent commit
+$ git revert <commit_hash> # Create a new commit that undoes all of the changes made in <commit_hash>, then apply it to the current branch.
+```
