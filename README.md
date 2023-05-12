@@ -41,3 +41,15 @@ $ git reflog # Display what happend inside the commit history
 $ git log --graph --decorate --oneline # Display what happend inside the commit history
 $ git log -S "git checkout -b" # Search this text inside all my commit to see where this text came from or modify are showing up
 ```
+- Save changes
+
+```bash 
+- git stash # Save changes to a stash so you can work on something else, and then come back and re-apply them later on.
+- git stash list # List all stashes
+- git stash apply # Apply the most recent stash to the current branch
+- git stash pop # Apply the most recent stash to the current branch, and then delete it
+- git stash apply stash@{2} # Apply the second most recent stash to the current branch
+- git stash drop # Delete the most recent stash
+- git stash drop stash@{2} # Delete the second most recent stash
+- git stash clear # Delete all stashes
+```
