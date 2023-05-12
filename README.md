@@ -53,3 +53,18 @@ $ git log -S "git checkout -b" # Search this text inside all my commit to see wh
 - git stash drop stash@{2} # Delete the second most recent stash
 - git stash clear # Delete all stashes
 ```
+
+- Hunting for a commit that introduced a bug
+
+```bash
+- git bisect start # Start the bisect process
+- git bisect bad # Tell git that the current commit is bad
+- git bisect good <commit hash> # Tell git that a commit is good
+
+# Git will now checkout a commit in the middle of the range you specified. Test your code and determine if the commit is good or bad. If it is good, run git bisect good. If it is bad, run git bisect bad. Git will then checkout another commit in the middle of the range. Repeat this process until git tells you that it has found the first bad commit.
+
+- git bisect bad # Tell git that the current commit is bad as well
+- git bisect good # Tell git that a commit is good
+
+- git bisect reset # End the bisect process and return to normal
+``` 
