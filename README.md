@@ -36,6 +36,23 @@ $ git reset HEAD~2
 $ git revert HEAD # Create a new commit that undoes all of the changes made in the most recent commit
 $ git revert <commit_hash> # Create a new commit that undoes all of the changes made in <commit_hash>, then apply it to the current branch.
 ```
+
+- To undo a git reset HEAD~ command
+
+```bash
+$ git reflog # Find the commit hash of the commit you want to go back to
+
+=> 670a8e2 HEAD@{0}: reset: moving to HEAD~
+=> 4a27b87 HEAD@{1}: commit: Your previous commit message
+=> 5d678b6 HEAD@{2}: commit: Your older commit message
+
+# The most recent entry at the top (HEAD@{0}) should indicate the result of the git reset HEAD~ command.
+# Identify the commit you want to restore, which should be the commit before the reset. (4a27b87)
+# To undo the reset and move your branch pointer back to the desired commit:
+
+$ git reset git reset HEAD@{1} # Reset to the commit hash you want to go back to
+```
+
 - Check commit history
 
 ```bash
@@ -46,14 +63,15 @@ $ git log -S "git checkout -b" # Search this text inside all my commit to see wh
 - Save changes
 
 ```bash 
-- git stash # Save changes to a stash so you can work on something else, and then come back and re-apply them later on.
-- git stash list # List all stashes
-- git stash apply # Apply the most recent stash to the current branch
-- git stash pop # Apply the most recent stash to the current branch, and then delete it
-- git stash apply stash@{2} # Apply the second most recent stash to the current branch
-- git stash drop # Delete the most recent stash
-- git stash drop stash@{2} # Delete the second most recent stash
-- git stash clear # Delete all stashes
+$ git stash # Save changes to a stash so you can work on something else, and then come back and re-apply them later on.
+$ git stash list # List all stashes
+$ git stash pop # Apply the most recent stash to the current branch, and then delete it
+$ git stash pop stash@{2} # Apply the second most recent stash to the current branch
+$ git stash apply # Apply the most recent stash to the current branch
+$ git stash apply stash@{2} # Apply the second most recent stash to the current branch
+$ git stash drop # Delete the most recent stash
+$ git stash drop stash@{2} # Delete the second most recent stash
+$ git stash clear # Delete all stashes
 ```
 
 - Hunting for a commit that introduced a bug
