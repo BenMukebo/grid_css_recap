@@ -31,7 +31,9 @@ $ git commit -am "commit message"
 - Undo git Add command before commit
 
 ```bash
-$ git reset <file_name> # removes the changes made to the file since the last commit and resets it to the state of the last commit.
+$ git reset <file_name> # unstage changes from the staging area.
+  # It moves the file from the staging area back to the working dir but keeps the modifications in the file.
+  #The changes are not discarded; they remain in the working directory,
 $ git reset # unstage all changes in the entire repository.
 $ git restore --staged <file_name> # is considered the newer and recommended command.
   # The --staged option or flag tells Git to unstage the file, moving them from the staging area back to the working directory how it was before git add was run.
@@ -98,7 +100,10 @@ $ git bisect start # Start the bisect process
 $ git bisect bad # Tell git that the current commit is bad
 $ git bisect good <commit hash> # Tell git that a commit is good
 
-# Git will now checkout a commit in the middle of the range you specified. Test your code and determine if the commit is good or bad. If it is good, run git bisect good. If it is bad, run git bisect bad. Git will then checkout another commit in the middle of the range. Repeat this process until git tells you that it has found the first bad commit.
+#1. Git will now checkout a commit in the middle of the range you specified.
+#2. Test your code and determine if the commit is good or bad. If it is good, run git bisect good or run git bisect bad.
+# Git will then checkout another commit in the middle of the range.
+#3. Repeat this process until git tells you that it has found the first bad commit.
 
 $ git bisect bad # Tell git that the current commit is bad as well
 $ git bisect good # Tell git that a commit is good
