@@ -28,11 +28,29 @@ $ git commit -a -m "commit message" # add and commit all files but it never work
 $ git commit -am "commit message" 
 ```
 
-- Undo Add & Commit
+- Undo git Add command before commit
+
+```bash
+$ git reset <file_name> # removes the changes made to the file since the last commit and resets it to the state of the last commit.
+$ git reset # unstage all changes in the entire repository.
+$ git restore --staged <file_name> # is considered the newer and recommended command.
+  # The --staged option or flag tells Git to unstage the file, moving them from the staging area back to the working directory how it was before git add was run.
+  # The changes are kept as modifications in the file, allowing you to make further adjustments before committing.
+$ git restore --staged # unstage all changes in the entire repository.
+$ git restore <file_name> # does not unstage changes but discard changes in a file and restore it to the state of the last commit.
+  # It removes any modifications made to the file in the working directory and replaces it with the version from the last commit but,
+  # unlike, it does not move the file from the staging area to the working directory.
+  # better to use it If you have unstaged changes in a file
+$ git restore # discard all changes in the entire repository
+$ git rm --cached <file_name> # used to remove a file from the Git repository's index (staging area) without deleting it from the working directory.
+  # meaning Git will no longer track changes to that file. Is useful when you want to stop tracking a file that was previously staged for commit.
+$ git reset --hard # undo all git add and git commit Note: ovid using this command
+```
+- Undo git Commit command
 
 ```bash
 $ git reset HEAD~ # undo last commit but keep changes OR 
-$ git reset HEAD~2
+$ git reset HEAD~2 # undo last 2 commits but keep changes
 $ git revert HEAD # Create a new commit that undoes all of the changes made in the most recent commit
 $ git revert <commit_hash> # Create a new commit that undoes all of the changes made in <commit_hash>, then apply it to the current branch.
 ```
@@ -45,7 +63,6 @@ $ git reflog # Find the commit hash of the commit you want to go back to
 => 670a8e2 HEAD@{0}: reset: moving to HEAD~
 => 4a27b87 HEAD@{1}: commit: Your previous commit message
 => 5d678b6 HEAD@{2}: commit: Your older commit message
-
 # The most recent entry at the top (HEAD@{0}) should indicate the result of the git reset HEAD~ command.
 # Identify the commit you want to restore, which should be the commit before the reset. (4a27b87)
 # To undo the reset and move your branch pointer back to the desired commit:
