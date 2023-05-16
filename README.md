@@ -110,3 +110,6 @@ $ git bisect good # Tell git that a commit is good
 
 $ git bisect reset # End the bisect process and return to normal
 ``` 
+
+- [Creating a commit with multiple authors](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)
+- [Changing the message of older or multiple commit messages](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message#:~:text=Changing%20the%20message%20of%20older%20or%20multiple%20commit%20messages)
