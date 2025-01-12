@@ -79,6 +79,20 @@ $ git reflog # Display what happend inside the commit history
 $ git log --graph --decorate --oneline # Display what happend inside the commit history
 $ git log -S "git checkout -b" # Search this text inside all my commit to see where this text came from or modify are showing up
 ```
+- Git Squash & Rebase
+
+```bash
+# squash
+$ git rebase -i HEARD~3 
+# I: Means interactive rebasing on the last commit we've done
+# Then within the IV. press
+- i: To enter the text editing mode (insert or interactive mode)
+- x: To delete characters
+- Esc + : + W + Q : To write quit + enter
+- D: To delete a line
+$ git commit --amend # To rename the commit together with all the squash 
+```
+
 - Save changes
 
 ```bash 
